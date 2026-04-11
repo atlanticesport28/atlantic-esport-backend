@@ -117,7 +117,8 @@ p { margin: 0; }
 }
 
 .nav-link:hover,
-.nav-link.is-active {
+.nav-link.is-active,
+.nav-link.active {
   color: var(--color-text);
   background: rgba(59, 130, 246, 0.12);
   box-shadow: var(--shadow-glow-primary);
