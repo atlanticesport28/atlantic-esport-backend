@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATLANTIC ESPORT | Create Tournament</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <nav class="nav"><div class="container nav-inner"><div class="brand">ATLANTIC <span>ESPORT</span></div></div></nav>
+  <main class="container section">
+    <section class="card">
+      <h2 style="margin-top:0;">Create Tournament</h2>
+      <form class="form">
+        <div>
+          <label class="label" for="tournamentName">Tournament Name</label>
+          <input class="input" id="tournamentName" type="text" placeholder="Atlantic Sunday Cup" />
+        </div>
+
+        <div class="toggle-wrap">
+          <span class="subtitle">Public</span>
+          <input id="isPrivate" class="toggle" type="checkbox" />
+          <span class="subtitle">Private</span>
+        </div>
+
+        <div id="privateConfig" class="card" style="display:none; padding:14px;">
+          <label class="label" for="inviteCode">Invite Code</label>
+          <input id="inviteCode" class="input" type="text" readonly placeholder="Generate code" />
+          <div class="btn-row">
+            <button id="generateInvite" class="btn secondary" type="button">Generate</button>
+          </div>
+          <label class="label" for="inviteLink">Invite Link</label>
+          <input id="inviteLink" class="input" type="text" readonly placeholder="Invite link" />
+          <div class="btn-row">
+            <button id="copyInvite" class="btn ghost" type="button">Copy</button>
+          </div>
+        </div>
+
+        <button class="btn" type="button">Create Tournament</button>
+      </form>
+    </section>
+  </main>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
