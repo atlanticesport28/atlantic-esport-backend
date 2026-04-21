@@ -4,8 +4,11 @@ const { success, error } = require('../utils/response');
 class TestController {
   async testConnection(req, res) {
     try {
+      if (!supabase) {
+        throw new Error('Supabase client is not initialized. Check your environment variables.');
+      }
+
       // Perform a simple health check query on Supabase
-      // We check the profiles table (which should exist from schema.sql)
       const { data, error: dbError, count } = await supabase
         .from('profiles')
         .select('*', { count: 'exact', head: true });

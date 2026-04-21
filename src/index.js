@@ -4,6 +4,17 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
+// Handle uncaught exceptions to prevent silent crashes
+process.on('uncaughtException', (err) => {
+  console.error('🔥 UNCAUGHT EXCEPTION! Shutting down...');
+  console.error(err.name, err.message, err.stack);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.error('🔥 UNHANDLED REJECTION! Shutting down...');
+  console.error(err.name, err.message, err.stack);
+});
+
 const app = express();
 
 // Middlewares
@@ -33,7 +44,7 @@ app.use('/api/admin', require('./routes/admin.routes'));
 
 // Error handling
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('❌ Request Error:', err.stack);
   res.status(err.status || 500).json({
     error: {
       message: err.message || 'Internal Server Error',
@@ -43,6 +54,21 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 ATLANTIC ESPORT Backend running on port ${PORT}`);
+
+// Start Server
+const server = app.listen(PORT, () => {
+  console.log(`
+  --------------------------------------------------
+  🚀 ATLANTIC ESPORT Backend running on port ${PORT}
+  🌍 Environment: ${process.env.NODE_ENV || 'development'}
+  --------------------------------------------------
+  `);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('👋 SIGTERM received. Shutting down gracefully...');
+  server.close(() => {
+    console.log('Process terminated.');
+  });
 });
