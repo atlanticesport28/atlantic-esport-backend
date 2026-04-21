@@ -13,6 +13,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Admin client for bypass RLS and admin tasks
+// 🔐 SECURITY WARNING: NEVER expose the serviceRoleKey in frontend code or public logs.
+// This client should ONLY be used in backend services with strict role/permission checks.
 const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey || supabaseAnonKey, {
   auth: {
     autoRefreshToken: false,
