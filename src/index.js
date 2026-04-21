@@ -25,6 +25,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health Check
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: '🚀 Atlantic eSport API is running',
+    version: '1.0.0',
+    documentation: '/api/test'
+  });
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
 });
