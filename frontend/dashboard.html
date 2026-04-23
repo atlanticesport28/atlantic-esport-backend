@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATLANTIC ESPORT | Dashboard</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">ATLANTIC <span>ESPORT</span></div>
+      <nav class="nav-links">
+        <a class="nav-link active" href="./dashboard.html">Dashboard</a>
+        <a class="nav-link" href="./match.html">Matches</a>
+        <a class="nav-link" href="./tournaments.html">Tournaments</a>
+        <a class="nav-link" href="./ranking.html">Ranking</a>
+        <a class="nav-link" href="./profile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <section class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
+        <div>
+          <h2 style="margin:0 0 8px;">AtlasWolf</h2>
+          <p class="subtitle" style="margin:0;">ELO: 1200 • Wins: 36 • Losses: 22</p>
+        </div>
+        <div class="avatar">AW</div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h3 style="margin-top:0;">Quick Actions</h3>
+      <div class="btn-row">
+        <a href="./match.html" class="btn">Play Match</a>
+        <a href="./create-tournament.html" class="btn secondary">Create Tournament</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3 style="margin-top:0;">Match History</h3>
+      <div class="list">
+        <article class="list-item"><span>Player1 3 - 1 Player2</span><span class="badge win">Win</span></article>
+        <article class="list-item"><span>Player1 0 - 2 Player4</span><span class="badge lose">Lose</span></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
